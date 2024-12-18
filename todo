@@ -1,0 +1,21 @@
+- Checar porqué scs no borra los registros de 'sessions' que tienen más de 6 horas de antigüedad.
+- Agregar un 'not found' para los snippets que no se encuentran
+// el recoverPanic funciona sólo en las goroutine principal. Si esa gorutina
+// crea otra y dentro de esa nueva ocurre un pánico, va a terminar el servidar.
+// Por eso hay que agregar código para recuperar de errores cada que invoquemos
+// una gorutina.
+
+func muHandler(w http.ResponseWriter, r *http.Request) {
+	// Spin up a new goroutine to do some background processing
+	go func() {
+		defer func() {
+			if err := recover(); err != nil {
+				log.Println(fmt.Errorf("%s\n%s", err, debug.Stack()))
+			}
+		}()
+
+		doSomeBackgroundProcessing()
+	}()
+
+	w.Write([]byte("OK"))
+}

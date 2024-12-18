@@ -1,0 +1,29 @@
+{{ define "title" }}Account{{ end }}
+
+{{ define "main" }}
+<div>
+	<h2>Your account</h2>
+	<table>
+		<tr>
+			<th>Name</th>
+			<td>{{ .UserData.Name }}</td>
+			<td><a href='/account/name/update'>Update</a></td>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<td>{{ .UserData.Email }}</td>
+			<td><a href='/account/email/update'>Update</a></td>
+		</tr>
+		<tr>
+			<th>Joined</th>
+			<td>{{ readableDate .UserData.Created }}</td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>Password</th>
+			<td>***********</td>
+			<td><a href='/account/password/update'>Update</a></td>
+		</tr>
+	</table>
+</div>
+{{ end }}
