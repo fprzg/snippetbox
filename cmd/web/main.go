@@ -58,9 +58,9 @@ func main() {
 
 	templateCache, err := newTemplateCache()
 	if err != nil {
-		app.errorLog.Fatal("Couldn't parse the templates")
+		app.errorLog.Fatal("Error parsing templates.")
 	} else {
-		app.infoLog.Printf("Templates parsed successfully")
+		app.infoLog.Printf("Templates parsed successfully.")
 	}
 
 	db, err := openDB(cfg.dsn)
