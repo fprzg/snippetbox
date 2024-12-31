@@ -5,9 +5,10 @@ Inspirada en [LET'S GO by Alex Edwards](https://lets-go.alexedwards.net/).
 
 # Installation
 
-1. Copy ´mv .envrc.example .envrc´. You can customize environment values from ´.envrc´.
-2. Run ´make app/install´ to setup the database and PEM certificate.
+Run `make app/install`. It creates the database and the PEM certificate (for development purposes).
 
 
 # Usage
-Run ´make app/run´
+Run `make app/run`
+
+![Home Page](docs/imgs/home.png)
